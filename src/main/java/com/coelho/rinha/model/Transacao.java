@@ -1,6 +1,10 @@
 package com.coelho.rinha.model;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -33,16 +37,19 @@ public class Transacao {
 	@JsonIgnoreProperties("transacao")
 	private Cliente id_cliente;
 	
+	@UpdateTimestamp
+	private LocalDateTime realizada_em;
+	
 	
 	
 
-	public Cliente getId_cliente() {
-		return id_cliente;
-	}
+	public LocalDateTime getRealizada_em() {	return realizada_em;}
 
-	public void setId_cliente(Cliente id_cliente) {
-		this.id_cliente = id_cliente;
-	}
+	public void setRealizada_em(LocalDateTime realizada_em) {	this.realizada_em = realizada_em;}
+
+	public Cliente getId_cliente() {	return id_cliente;}
+
+	public void setId_cliente(Cliente id_cliente) {this.id_cliente = id_cliente;}
 
 	public Long getId() {return id;}
 

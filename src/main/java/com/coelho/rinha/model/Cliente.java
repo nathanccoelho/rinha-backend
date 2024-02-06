@@ -1,8 +1,5 @@
 package com.coelho.rinha.model;
 
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -27,18 +24,11 @@ public class Cliente {
 	
 	private Long saldo;
 	
-	@UpdateTimestamp
-	private LocalDateTime realizada_em;
-	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("cliente")
 	private Transacao transacao;
 	
 	
-
-	public LocalDateTime getRealizada_em() {	return realizada_em;}
-	
-	public void setRealizada_em(LocalDateTime realizada_em) {	this.realizada_em = realizada_em;}
 
 	public Transacao getTransacao() {return transacao;}
 
