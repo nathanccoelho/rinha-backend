@@ -1,5 +1,6 @@
 package com.coelho.rinha.model;
 
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -13,38 +14,51 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="tb_clientes")
+@Table(name = "tb_clientes")
 public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private Long limite;
-	
+
 	private Long saldo;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.REMOVE)
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_cliente", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("cliente")
-	private Transacao transacao;
-	
-	
+	private List<Transacao> transacoes;
 
-	public Transacao getTransacao() {return transacao;}
+	public List<Transacao> getTransacao() {
+		return transacoes;
+	}
 
-	public void setTransacao(Transacao transacao) {	this.transacao = transacao;}
+	public void setTransacao(List<Transacao> transacoes) {
+		this.transacoes = transacoes;
+	}
 
-	public Long getId() {return id;}
+	public Long getId() {
+		return id;
+	}
 
-	public void setId(Long id) {	this.id = id;}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-	public Long getLimite() {	return limite;}
+	public Long getLimite() {
+		return limite;
+	}
 
-	public void setLimite(Long limite) {	this.limite = limite;}
+	public void setLimite(Long limite) {
+		this.limite = limite;
+	}
 
-	public Long getSaldo() {	return saldo;}
+	public Long getSaldo() {
+		return saldo;
+	}
 
-	public void setSaldo(Long saldo) {	this.saldo = saldo;}
-	
-	
+	public void setSaldo(Long saldo) {
+		this.saldo = saldo;
+	}
+
 }
