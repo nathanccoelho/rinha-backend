@@ -34,7 +34,7 @@ public class Transacao {
 	private String descricao;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("transacao")
+	@JsonIgnoreProperties("ultimas_transacoes")
 	private Cliente id_cliente;
 	
 	@UpdateTimestamp

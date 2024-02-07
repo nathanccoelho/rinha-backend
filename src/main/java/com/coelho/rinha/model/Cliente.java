@@ -27,14 +27,14 @@ public class Cliente {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_cliente", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("cliente")
-	private List<Transacao> transacoes;
+	private List<Transacao> ultimas_transacoes;
 
-	public List<Transacao> getTransacao() {
-		return transacoes;
+	public List<Transacao> getUltimas_transacoes() {
+		return ultimas_transacoes;
 	}
 
-	public void setTransacao(List<Transacao> transacoes) {
-		this.transacoes = transacoes;
+	public void setUltimas_transacoes(List<Transacao> ultimas_transacoes) {
+		this.ultimas_transacoes = ultimas_transacoes;
 	}
 
 	public Long getId() {
