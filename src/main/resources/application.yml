@@ -1,18 +1,22 @@
 spring:
-  datasource:
-    url: jdbc:h2:mem:db_rinha
-    username: root
-    password: root
   jpa:
+    generate-ddl: true
+    database: postgresql
     show-sql: true
-    hibernate:
-      ddl-auto: update
-      properties:
-        hibernate.format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        trace: false
-        web-allow-others: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rinha
+    username: admin
+    password: 123
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: "Brazil/East"
+  sql:
+    init:
+      data-locations: classpath:data.sql

@@ -3,7 +3,7 @@ version: "3.5"
 services:
   api01: &api
 
-    image: nathanccoelho/rinha-backend:latest
+    #image: nathanccoelho/rinha-backend
     hostname: api01
     environment:
       - DB_HOSTNAME=db
@@ -29,7 +29,7 @@ services:
       - "8082:8080"
 
   nginx:
-    image: nginx:latest
+    image: nginx:1.25.3-alpine
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
@@ -44,7 +44,7 @@ services:
           memory: "10MB"
 
   db:
-    image: postgres:latest
+    image: postgres:16.1
     hostname: db
     environment:
       - POSTGRES_PASSWORD=123
