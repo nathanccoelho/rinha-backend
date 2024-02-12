@@ -2,8 +2,8 @@ version: "3.5"
 
 services:
   api01: &api
-
     image: aplicacao-rinha
+
     hostname: api01
     environment:
       - DB_HOSTNAME=db
